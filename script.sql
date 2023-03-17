@@ -1,0 +1,16 @@
+USE notesblock;
+
+CREATE TABLE users(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  email VARCHAR(70) NOT NULL,
+  password VARCHAR(50) NOT NULL,
+  token VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE notes(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(70) NOT NULL,
+  description VARCHAR(900) NOT NULL,
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
